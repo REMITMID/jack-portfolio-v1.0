@@ -1,4 +1,3 @@
-import React from 'react';
 import { PORTFOLIO_ITEMS } from '../constants/portfolioData';
 
 const Portfolio = () => {

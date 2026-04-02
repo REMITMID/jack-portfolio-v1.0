@@ -1,4 +1,3 @@
-import React from 'react';
 import { ORG_ITEMS } from '../constants/orgData';
 
 const Organization = () => {

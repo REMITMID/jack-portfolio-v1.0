@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import { type JSX } from 'react';
 import kbmdsi from '../assets/kbmdsi.png';
 import taekwondo from '../assets/tiub.png';
 

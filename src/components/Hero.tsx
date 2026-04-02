@@ -1,9 +1,5 @@
 import React from 'react';
 import ProfileImg from '../assets/foto-jack.png'
-import lampu1 from '../assets/lampu 1.png'
-import lampu2 from '../assets/lampu 2.png'
-import lampu3 from '../assets/lampu 3.png'
-import lampu4 from '../assets/lampu 4.png'
 
 const Hero: React.FC = () => {
   return (

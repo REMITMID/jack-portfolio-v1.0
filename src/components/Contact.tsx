@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Contact = () => {
   return (
     <section className="bg-[#151022] py-20 px-6 font-bricolage min-h-screen flex items-center">

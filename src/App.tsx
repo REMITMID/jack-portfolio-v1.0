@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Navbar from './components/Navbar'
 import AboutMe from './components/Hero'
 import Skills from './components/Skills'
@@ -7,8 +6,6 @@ import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div className="bg-[#151022]">
