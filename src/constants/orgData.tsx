@@ -1,5 +1,5 @@
 import { type JSX } from 'react';
-import kbmdsi from '../assets/kbmdsi.png';
+import kbmdsi from '../assets/KBMDSI.png';
 import taekwondo from '../assets/tiub.png';
 
 export interface Organization {
