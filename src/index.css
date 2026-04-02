@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --animate-spin-slow: spin 10s linear infinite;
+    --animate-infinite-scroll: scroll 60s linear infinite;
+    --color-brand-bg: #151022;
+    --font-bricolage: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-bricolage);
+    background-color: var(--color-brand-bg);
+    color: white;
+    margin: 0;
+    min-height: 100vh;
+    /* Menghilangkan scrollbar bounce di Mac/Mobile agar background tetap solid */
+    overscroll-behavior: none;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
