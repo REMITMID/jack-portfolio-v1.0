@@ -1,16 +1,27 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // [1] Import motion
+import { motion } from 'framer-motion';
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Organization', href: '#organization' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'About', id: 'about' },
+  { name: 'Skills', id: 'skills' },
+  { name: 'Organization', id: 'organization' },
+  { name: 'Portfolio', id: 'portfolio' },
+  { name: 'Contact', id: 'contact' },
 ];
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('about');
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
 
   useEffect(() => {
     const observerOptions = {
@@ -30,7 +41,7 @@ const Navbar = () => {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     navLinks.forEach((link) => {
-      const element = document.getElementById(link.href.replace('#', ''));
+      const element = document.getElementById(link.id);
       if (element) observer.observe(element);
     });
 
@@ -38,33 +49,30 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-[#2D2D3A]/60 backdrop-blur-lg border border-white/10 rounded-full font-bricolage transition-all duration-300">
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 p-1 bg-[#2D2D3A]/60 backdrop-blur-lg border border-white/10 rounded-full font-bricolage">
       <div className="flex items-center gap-2">
         {navLinks.map((link) => {
-          const isActive = activeSection === link.href.replace('#', '');
+          const isActive = activeSection === link.id;
           
           return (
             <a
               key={link.name}
-              href={link.href}
+              href={`#${link.id}`}
+              onClick={(e) => handleScroll(e, link.id)}
               className={`
                 relative px-6 py-2 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold 
-                transition-colors duration-500 uppercase tracking-wider
+                transition-colors duration-500 uppercase tracking-wider cursor-pointer
                 ${isActive ? 'text-[#151022]' : 'text-white hover:text-gray-300'}
               `}
             >
-              {/* [2] Indikator Putih dengan Animasi Bergeser */}
               {isActive && (
                 <motion.span
-                  layoutId="active-pill" // ID unik agar Framer tahu ini elemen yang bergeser
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }} // Mengatur kehalusan geseran
+                  layoutId="active-pill"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   className="absolute inset-0 bg-white rounded-full -z-10"
                 />
               )}
-              
-              <span className="relative z-10">
-                {link.name}
-              </span>
+              <span className="relative z-10">{link.name}</span>
             </a>
           );
         })}

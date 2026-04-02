@@ -3,7 +3,6 @@
 
 @theme {
     --animate-spin-slow: spin 10s linear infinite;
-    --animate-infinite-scroll: scroll 60s linear infinite;
     --color-brand-bg: #151022;
     --font-bricolage: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
 }
@@ -37,4 +36,10 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.animate-infinite-scroll {
+  display: flex;
+  width: max-content; /* Sangat penting agar lebar otomatis mengikuti konten */
+  animation: scroll 20s linear infinite;
 }
