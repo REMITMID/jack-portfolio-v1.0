@@ -1,4 +1,3 @@
-import React from 'react';
 import { SKILLS_ITEMS } from '../constants/skillsData';
 
 const SKILLS_TAGS = SKILLS_ITEMS.map(skill => skill.name);
